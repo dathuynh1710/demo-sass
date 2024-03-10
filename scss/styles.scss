@@ -1,3 +1,8 @@
+$primary-color: red;
+
+:root {
+    --text-color: #333;
+}
 *,
 ::before,
 ::after {
@@ -7,4 +12,118 @@
 h1 {
     color: olive;
     font-size: 30px;
+}
+
+// VD 1
+// .card {
+//     width: 300px;
+//     padding: 20px;
+//     border: 2px solid #ccc;
+//     border-radius: 8px;
+
+//     .thumb {
+//         width: 100%;
+//     }
+
+//     .title {
+//         font-size: 22px;
+//     }
+
+//     strong {
+//         color: red;
+//     }
+
+//     .desc {
+//         font-size: 18px;
+//     }
+
+//     .btn-link {
+//         color: #666;
+//     }
+// }
+
+// VD2
+// .card {
+//     width: 300px;
+//     padding: 20px;
+//     border: 2px solid #ccc;
+//     border-radius: 8px;
+
+//     &-thumb {
+//         width: 100%;
+//     }
+
+//     &-title {
+//         font-size: 22px;
+//     }
+
+//     strong {
+//         color: red;
+//     }
+
+//     &-desc {
+//         font-size: 18px;
+//     }
+
+//     &-btn-link {
+//         color: #666;
+//     }
+// }
+
+// VD 3
+.card {
+    $font-family: monospace;
+
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: #f1f1f1;
+    }
+
+    &:hover &__title {
+        color: blue;
+    }
+
+    &:hover &__title::before {
+        color: orange;
+    }
+
+    &--bottom {
+        margin-top: 100px;
+    }
+
+    &__thumb {
+        width: 100%;
+    }
+
+    &__title {
+        font-size: 22px;
+        font-family: $font-family;
+        strong {
+            color: $primary-color;
+        }
+
+        &--large {
+            font-size: 32px;
+        }
+
+        &::before {
+            content: "1. ";
+        }
+    }
+
+    &__desc {
+        font: {
+            size: 18px;
+            weight: 600;
+            style: italic;
+        }
+    }
+
+    &__btn-link {
+        color: #666;
+    }
 }
