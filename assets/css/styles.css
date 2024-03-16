@@ -8,31 +8,40 @@ body {
   font-family: system-ui;
 }
 
-.center {
+.list {
+  --column: 4;
+  --spacing: 30px;
+  flex-wrap: wrap;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 300px;
-  border-radius: 10px 10px 10px 60px;
-  translate: 100px;
-  background: orange;
-  font-size: 30px;
+  row-gap: var(--spacing);
+  margin-left: calc(-1 * var(--spacing));
+}
+.list > * {
+  width: calc(100% / var(--column) - var(--spacing));
+  margin-left: var(--spacing);
+}
+.list .item {
+  background: olivedrab;
+  font-size: 20px;
   font-weight: 600;
 }
 
-.box {
+.news-list {
+  --column: 2;
+  --spacing: 20px;
+  flex-wrap: wrap;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
+  row-gap: var(--spacing);
+  margin-left: calc(-1 * var(--spacing));
   margin-top: 30px;
-  width: 150px;
-  height: 150px;
-  background: olivedrab;
-  font-size: 24px;
-  font-weight: 600;
+}
+.news-list > * {
+  width: calc(100% / var(--column) - var(--spacing));
+  margin-left: var(--spacing);
+}
+.news-list .news-item {
+  background: orangered;
+  padding: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

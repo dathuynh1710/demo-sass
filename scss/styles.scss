@@ -8,64 +8,37 @@ body {
     font-family: system-ui;
 }
 
-// -- Mixin không tham số
-@mixin flexCenter {
+@mixin grid($column, $spacing) {
+    --column: #{$column};
+    --spacing: #{$spacing};
+    flex-wrap: wrap;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    row-gap: var(--spacing);
+    margin-left: calc(-1 * var(--spacing));
 
-// = Mixin có tham số
-// @mixin size($width, $height) {
-//     width: $width;
-//     height: $height;
-// }
+    > * {
+        width: calc(100% / var(--column) - var(--spacing));
 
-// ? Mixin có tham số mặc đinh
-// @mixin size($width, $height: 200px) {
-//     width: $width;
-//     height: $height;
-// }
-
-// *  Dùng tham số trước đó làm mặc định
-@mixin size($width, $height: $width) {
-    width: $width;
-    height: $height;
-}
-
-@mixin round($tl, $tr: $tl, $br: $tl, $bl: $tl) {
-    border-radius: $tl $tr $br $bl;
-    @include move(100px);
-}
-
-// = Mixin lồng mixin
-@mixin move($x, $y: null) {
-    translate: $x $y;
-}
-
-.center {
-    @include flexCenter();
-    @include size(200px, 300px);
-    // *  Dùng tham số trước đó làm mặc định
-    // @include round(20px, 50px, 20px, 50px);
-    // todo   Truyền đối số theo tên
-    @include round(10px, $bl: 60px);
-
-    background: orange;
-
-    font: {
-        size: 30px;
-        weight: 600;
+        margin-left: var(--spacing);
     }
 }
 
-.box {
-    @include flexCenter();
-    @include size(150px);
+.list {
+    @include grid(4, 30px);
+    .item {
+        background: olivedrab;
+        font: {
+            size: 20px;
+            weight: 600;
+        }
+    }
+}
+
+.news-list {
+    @include grid(2, 20px);
     margin-top: 30px;
-    width: 150px;
-    height: 150px;
-    background: olivedrab;
-    font-size: 24px;
-    font-weight: 600;
+    .news-item {
+        background: orangered;
+        padding: 20px;
+    }
 }
