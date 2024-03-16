@@ -23,6 +23,20 @@ body {
     }
 }
 
+@mixin screen($device) {
+    @if $device == tablet {
+        @media (max-width: 991.98px) {
+            @content;
+        }
+    }
+
+    @if $device == mobile {
+        @media (max-width: 575.98px) {
+            @content;
+        }
+    }
+}
+
 .list {
     @include grid(4, 30px);
 
@@ -34,6 +48,16 @@ body {
 
     // Mobile
     @media (max-width: 575.98px) {
+        --column: 1;
+        --spacing: 10px;
+    }
+
+    @include screen(tablet) {
+        --column: 2;
+        --spacing: 20px;
+    }
+
+    @include screen(mobile) {
         --column: 1;
         --spacing: 10px;
     }
