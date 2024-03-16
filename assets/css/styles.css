@@ -4,44 +4,35 @@
   box-sizing: border-box;
 }
 
-.group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 50px;
+body {
+  font-family: system-ui;
 }
 
-.btn-base, .btn-info, .btn-warning, .btn-danger, .btn-success, .btn-secondary, .btn-primary {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 14px;
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 300px;
+  border-radius: 10px 10px 10px 60px;
+  translate: 100px;
+  background: orange;
+  font-size: 30px;
   font-weight: 600;
 }
 
-.btn-primary {
-  background: #3479f8;
-}
-
-.btn-secondary {
-  background: #6e757c;
-}
-
-.btn-success {
-  background: #4fa450;
-}
-
-.btn-danger {
-  background: #cc4648;
-}
-
-.btn-warning {
-  background: #f6c43d;
-}
-
-.btn-info {
-  background: #499fb6;
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  margin-top: 30px;
+  width: 150px;
+  height: 150px;
+  background: olivedrab;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=styles.css.map */

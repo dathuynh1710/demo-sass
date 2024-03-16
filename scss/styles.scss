@@ -1,60 +1,71 @@
-$primary-color: #3479f8;
-$secondary-color: #6e757c;
-$success-color: #4fa450;
-$danger-color: #cc4648;
-$warning-color: #f6c43d;
-$info-color: #499fb6;
-
 *,
 ::before,
 ::after {
     box-sizing: border-box;
 }
 
-.group {
+body {
+    font-family: system-ui;
+}
+
+// -- Mixin không tham số
+@mixin flexCenter {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-base {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
+// = Mixin có tham số
+// @mixin size($width, $height) {
+//     width: $width;
+//     height: $height;
+// }
 
-    color: #fff;
+// ? Mixin có tham số mặc đinh
+// @mixin size($width, $height: 200px) {
+//     width: $width;
+//     height: $height;
+// }
 
-    font-size: 14px;
+// *  Dùng tham số trước đó làm mặc định
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin round($tl, $tr: $tl, $br: $tl, $bl: $tl) {
+    border-radius: $tl $tr $br $bl;
+    @include move(100px);
+}
+
+// = Mixin lồng mixin
+@mixin move($x, $y: null) {
+    translate: $x $y;
+}
+
+.center {
+    @include flexCenter();
+    @include size(200px, 300px);
+    // *  Dùng tham số trước đó làm mặc định
+    // @include round(20px, 50px, 20px, 50px);
+    // todo   Truyền đối số theo tên
+    @include round(10px, $bl: 60px);
+
+    background: orange;
+
+    font: {
+        size: 30px;
+        weight: 600;
+    }
+}
+
+.box {
+    @include flexCenter();
+    @include size(150px);
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+    background: olivedrab;
+    font-size: 24px;
     font-weight: 600;
-}
-
-.btn-primary {
-    @extend .btn-base;
-    background: $primary-color;
-}
-
-.btn-secondary {
-    @extend .btn-base;
-    background: $secondary-color;
-}
-
-.btn-success {
-    @extend .btn-base;
-    background: $success-color;
-}
-
-.btn-danger {
-    @extend .btn-base;
-    background: $danger-color;
-}
-
-.btn-warning {
-    @extend .btn-base;
-    background: $warning-color;
-}
-
-.btn-info {
-    @extend .btn-base;
-    background: $info-color;
 }
